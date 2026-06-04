@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire;
 
-Route::get('/', function () {
-    echo 'Livewire';
-});
+Route::livewire('/', 'pages::main')->name('home');
