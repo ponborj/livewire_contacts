@@ -53,10 +53,13 @@ new class extends Component {
 
         // check if contact was created or error
         if ($result->wasRecentlyCreated) {
-            Toaster::success($this->success = 'Contact created successfully.');
+            Toaster::success($this->success = 'Contato criado com sucesso!');
             $this->reset(['name', 'email', 'phone']);
+
+            // event
+            $this->dispatch('refreshContacts');
         } else {
-            Toaster::error($this->error = 'Contact already exists.');
+            Toaster::error($this->error = 'Contato já existe!');
         }
     }
 };
@@ -64,8 +67,9 @@ new class extends Component {
 
 <div>
     <div class="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+        <p class="text-lg font-semibold text-gray-900 mb-4">Criar Contato</p>
 
-        <form wire:submit="newContact" class="space-y-4">
+        <form wire:submit="newContact" class="space-y-4 divide-y divide-gray-100 border-t border-gray-100">
 
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
@@ -97,7 +101,7 @@ new class extends Component {
             <div class="text-right">
                 <button type="submit"
                     class="inline-flex justify-center px-6 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Save
+                    Salvar
                 </button>
             </div>
 

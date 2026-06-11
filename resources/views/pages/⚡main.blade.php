@@ -11,10 +11,12 @@ new class extends Component {
 ?>
 
 <div>
-    <div class="px-4 mx-auto max-w-7xl">
-        <livewire:logo />
+    <div class="px-4 mx-auto max-w-7xl py-12">
+        <div class="mb-8 flex justify-center w-full">
+            <livewire:logo />
+        </div>
 
-        <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div class="md:col-span-1">
                 <livewire:form-contact />
             </div>
@@ -22,5 +24,6 @@ new class extends Component {
                 <livewire:contacts />
             </div>
         </div>
+
     </div>
 </div>
